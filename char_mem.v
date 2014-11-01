@@ -22,7 +22,7 @@ module char_mem (
 			read <= 0;
 			write_addr <= 0;
 		end else begin
-			if (read) begin
+			if (read && ~read_ready) begin
 				read <= 0;
 				mem[write_addr] <= char_in;
 				write_addr <= write_addr + 1;
